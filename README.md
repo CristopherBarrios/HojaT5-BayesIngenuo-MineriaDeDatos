@@ -6,8 +6,8 @@ Creado por:
 - Carlos Daniel Estrada
 
 
-[Instrucciones](./HojadeTrabajo4.NB_2023.pdf)
+[Instrucciones](./HojadeTrabajo5.NB_2023.pdf)
 
-[PDF - Modelos de Regresion Lineal](./BayesIngenuo.pdf)
+[PDF - Informe](./BayesIngenuo.pdf)
 
 [RMD - Codigo](./BayesIngenuo.Rmd)
