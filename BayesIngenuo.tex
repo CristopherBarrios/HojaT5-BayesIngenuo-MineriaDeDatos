@@ -1,0 +1,358 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={BayesIngenuo},
+  pdfauthor={Cristopher Barrios, Carlos Daniel Estrada},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{BayesIngenuo}
+\author{Cristopher Barrios, Carlos Daniel Estrada}
+\date{2023-03-17}
+
+\begin{document}
+\maketitle
+
+librerias
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(rpart)}
+\FunctionTok{library}\NormalTok{(rpart.plot)}
+\FunctionTok{library}\NormalTok{(dplyr) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(fpc) }
+\FunctionTok{library}\NormalTok{(cluster) }
+\FunctionTok{library}\NormalTok{(}\StringTok{"ggpubr"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: ggplot2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(mclust)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Package 'mclust' version 6.0.0
+## Type 'citation("mclust")' for citing this R package in publications.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(caret)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tree)}
+\FunctionTok{library}\NormalTok{(randomForest)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## randomForest 4.7-1.1
+\end{verbatim}
+
+\begin{verbatim}
+## Type rfNews() to see new features/changes/bug fixes.
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'randomForest'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:ggplot2':
+## 
+##     margin
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:dplyr':
+## 
+##     combine
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(plyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ------------------------------------------------------------------------------
+\end{verbatim}
+
+\begin{verbatim}
+## You have loaded plyr after dplyr - this is likely to cause problems.
+## If you need functions from both plyr and dplyr, please load plyr first, then dplyr:
+## library(plyr); library(dplyr)
+\end{verbatim}
+
+\begin{verbatim}
+## ------------------------------------------------------------------------------
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'plyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:ggpubr':
+## 
+##     mutate
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:dplyr':
+## 
+##     arrange, count, desc, failwith, id, mutate, rename, summarise,
+##     summarize
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"stats"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"datasets"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"prediction"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v forcats   1.0.0     v stringr   1.5.0
+## v lubridate 1.9.2     v tibble    3.1.8
+## v purrr     1.0.1     v tidyr     1.3.0
+## v readr     2.1.4
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x plyr::arrange()         masks dplyr::arrange()
+## x randomForest::combine() masks dplyr::combine()
+## x purrr::compact()        masks plyr::compact()
+## x plyr::count()           masks dplyr::count()
+## x plyr::desc()            masks dplyr::desc()
+## x plyr::failwith()        masks dplyr::failwith()
+## x dplyr::filter()         masks stats::filter()
+## x plyr::id()              masks dplyr::id()
+## x dplyr::lag()            masks stats::lag()
+## x purrr::lift()           masks caret::lift()
+## x purrr::map()            masks mclust::map()
+## x randomForest::margin()  masks ggplot2::margin()
+## x plyr::mutate()          masks ggpubr::mutate(), dplyr::mutate()
+## x plyr::rename()          masks dplyr::rename()
+## x plyr::summarise()       masks dplyr::summarise()
+## x plyr::summarize()       masks dplyr::summarize()
+## i Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors
+\end{verbatim}
+
+\hypertarget{use-los-mismos-conjuntos-de-entrenamiento-y-prueba-que-utilizuxf3-en-las-dos-hojas-anteriores.}{%
+\subsubsection{1. Use los mismos conjuntos de entrenamiento y prueba que
+utilizó en las dos hojas
+anteriores.}\label{use-los-mismos-conjuntos-de-entrenamiento-y-prueba-que-utilizuxf3-en-las-dos-hojas-anteriores.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\OtherTok{=} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"./train.csv"}\NormalTok{)}
+\NormalTok{test}\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"./test.csv"}\NormalTok{, }\AttributeTok{stringsAsFactors =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{set\_entrenamiento }\OtherTok{\textless{}{-}} \FunctionTok{sample\_frac}\NormalTok{(datos, .}\DecValTok{7}\NormalTok{)}
+\NormalTok{set\_prueba }\OtherTok{\textless{}{-}}\FunctionTok{setdiff}\NormalTok{(datos, set\_entrenamiento)}
+
+
+\NormalTok{drop }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"LotFrontage"}\NormalTok{, }\StringTok{"Alley"}\NormalTok{, }\StringTok{"MasVnrType"}\NormalTok{, }\StringTok{"MasVnrArea"}\NormalTok{, }\StringTok{"BsmtQual"}\NormalTok{, }\StringTok{"BsmtCond"}\NormalTok{, }\StringTok{"BsmtExposure"}\NormalTok{, }\StringTok{"BsmtFinType1"}\NormalTok{, }\StringTok{"BsmtFinType2"}\NormalTok{, }\StringTok{"Electrical"}\NormalTok{, }\StringTok{"FireplaceQu"}\NormalTok{, }\StringTok{"GarageType"}\NormalTok{, }\StringTok{"GarageYrBlt"}\NormalTok{, }\StringTok{"GarageFinish"}\NormalTok{, }\StringTok{"GarageQual"}\NormalTok{, }\StringTok{"GarageCond"}\NormalTok{, }\StringTok{"PoolQC"}\NormalTok{, }\StringTok{"Fence"}\NormalTok{, }\StringTok{"MiscFeature"}\NormalTok{)}
+\NormalTok{set\_entrenamiento }\OtherTok{\textless{}{-}}\NormalTok{ set\_entrenamiento[, }\SpecialCharTok{!}\NormalTok{(}\FunctionTok{names}\NormalTok{(set\_entrenamiento) }\SpecialCharTok{\%in\%}\NormalTok{ drop)]}
+\NormalTok{set\_prueba }\OtherTok{\textless{}{-}}\NormalTok{ set\_prueba[, }\SpecialCharTok{!}\NormalTok{(}\FunctionTok{names}\NormalTok{(set\_prueba) }\SpecialCharTok{\%in\%}\NormalTok{ drop)]}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{elabore-un-modelo-de-regresiuxf3n-usando-bayes-ingenuo-naive-bayes-el-conjunto-de-entrenamiento-y-la-variable-respuesta-salesprice.-prediga-con-el-modelo-y-explique-los-resultados-a-los-que-llega.-aseguxfarese-que-los-conjuntos-de-entrenamiento-y-prueba-sean-los-mismos-de-las-hojas-anteriores-para-que-los-modelos-sean-comparables.}{%
+\subsubsection{2. Elabore un modelo de regresión usando bayes ingenuo
+(naive bayes), el conjunto de entrenamiento y la variable respuesta
+SalesPrice. Prediga con el modelo y explique los resultados a los que
+llega. Asegúrese que los conjuntos de entrenamiento y prueba sean los
+mismos de las hojas anteriores para que los modelos sean
+comparables.}\label{elabore-un-modelo-de-regresiuxf3n-usando-bayes-ingenuo-naive-bayes-el-conjunto-de-entrenamiento-y-la-variable-respuesta-salesprice.-prediga-con-el-modelo-y-explique-los-resultados-a-los-que-llega.-aseguxfarese-que-los-conjuntos-de-entrenamiento-y-prueba-sean-los-mismos-de-las-hojas-anteriores-para-que-los-modelos-sean-comparables.}}
+
+\hypertarget{haga-un-modelo-de-clasificaciuxf3n-use-la-variable-categuxf3rica-que-hizo-con-el-precio-de-las-casas-barata-media-y-cara-como-variable-respuesta.}{%
+\subsubsection{3. Haga un modelo de clasificación, use la variable
+categórica que hizo con el precio de las casas (barata, media y cara)
+como variable
+respuesta.}\label{haga-un-modelo-de-clasificaciuxf3n-use-la-variable-categuxf3rica-que-hizo-con-el-precio-de-las-casas-barata-media-y-cara-como-variable-respuesta.}}
+
+\hypertarget{utilice-los-modelos-con-el-conjunto-de-prueba-y-determine-la-eficiencia-del-algoritmo-para-predecir-y-clasificar.}{%
+\subsubsection{4. Utilice los modelos con el conjunto de prueba y
+determine la eficiencia del algoritmo para predecir y
+clasificar.}\label{utilice-los-modelos-con-el-conjunto-de-prueba-y-determine-la-eficiencia-del-algoritmo-para-predecir-y-clasificar.}}
+
+\hypertarget{analice-los-resultados-del-modelo-de-regresiuxf3n.-quuxe9-tan-bien-le-fue-prediciendo}{%
+\subsubsection{5. Analice los resultados del modelo de regresión. ¿Qué
+tan bien le fue
+prediciendo?}\label{analice-los-resultados-del-modelo-de-regresiuxf3n.-quuxe9-tan-bien-le-fue-prediciendo}}
+
+\hypertarget{compare-los-resultados-con-el-modelo-de-regresiuxf3n-lineal-y-el-uxe1rbol-de-regresiuxf3n-que-hizo-en-las-hojas-pasadas.-cuuxe1l-funcionuxf3-mejor}{%
+\subsubsection{6. Compare los resultados con el modelo de regresión
+lineal y el árbol de regresión que hizo en las hojas pasadas. ¿Cuál
+funcionó
+mejor?}\label{compare-los-resultados-con-el-modelo-de-regresiuxf3n-lineal-y-el-uxe1rbol-de-regresiuxf3n-que-hizo-en-las-hojas-pasadas.-cuuxe1l-funcionuxf3-mejor}}
+
+\hypertarget{haga-un-anuxe1lisis-de-la-eficiencia-del-modelo-de-clasificaciuxf3n-usando-una-matriz-de-confusiuxf3n.-tenga-en-cuenta-la-efectividad-donde-el-algoritmo-se-equivocuxf3-muxe1s-donde-se-equivocuxf3-menos-y-la-importancia-que-tienen-los-errores.}{%
+\subsubsection{7. Haga un análisis de la eficiencia del modelo de
+clasificación usando una matriz de confusión. Tenga en cuenta la
+efectividad, donde el algoritmo se equivocó más, donde se equivocó menos
+y la importancia que tienen los
+errores.}\label{haga-un-anuxe1lisis-de-la-eficiencia-del-modelo-de-clasificaciuxf3n-usando-una-matriz-de-confusiuxf3n.-tenga-en-cuenta-la-efectividad-donde-el-algoritmo-se-equivocuxf3-muxe1s-donde-se-equivocuxf3-menos-y-la-importancia-que-tienen-los-errores.}}
+
+\hypertarget{analice-el-modelo.-cree-que-pueda-estar-sobre-ajustado}{%
+\subsubsection{8. Analice el modelo. ¿Cree que pueda estar sobre
+ajustado?}\label{analice-el-modelo.-cree-que-pueda-estar-sobre-ajustado}}
+
+\hypertarget{haga-un-modelo-usando-validaciuxf3n-cruzada-compare-los-resultados-de-este-con-los-del-modelo-anterior.-cuuxe1l-funcionuxf3-mejor}{%
+\subsubsection{9. Haga un modelo usando validación cruzada, compare los
+resultados de este con los del modelo anterior. ¿Cuál funcionó
+mejor?}\label{haga-un-modelo-usando-validaciuxf3n-cruzada-compare-los-resultados-de-este-con-los-del-modelo-anterior.-cuuxe1l-funcionuxf3-mejor}}
+
+\hypertarget{compare-la-eficiencia-del-algoritmo-con-el-resultado-obtenido-con-el-uxe1rbol-de-decisiuxf3n-el-de-clasificaciuxf3n-y-el-modelo-de-random-forest-que-hizo-en-la-hoja-pasada.-cuuxe1l-es-mejor-para-predecir-cuuxe1l-se-demoruxf3-muxe1s-en-procesar}{%
+\subsubsection{10. Compare la eficiencia del algoritmo con el resultado
+obtenido con el árbol de decisión (el de clasificación) y el modelo de
+random forest que hizo en la hoja pasada. ¿Cuál es mejor para predecir?
+¿Cuál se demoró más en
+procesar?}\label{compare-la-eficiencia-del-algoritmo-con-el-resultado-obtenido-con-el-uxe1rbol-de-decisiuxf3n-el-de-clasificaciuxf3n-y-el-modelo-de-random-forest-que-hizo-en-la-hoja-pasada.-cuuxe1l-es-mejor-para-predecir-cuuxe1l-se-demoruxf3-muxe1s-en-procesar}}
+
+\end{document}

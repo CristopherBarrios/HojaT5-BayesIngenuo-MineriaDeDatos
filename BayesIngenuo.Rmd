@@ -7,6 +7,28 @@ output:
   html_document: default
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+librerias
+```{r}
+library(rpart)
+library(rpart.plot)
+library(dplyr) 
+library(fpc) 
+library(cluster) 
+library("ggpubr") 
+library(mclust)
+library(caret)
+library(tree)
+library(randomForest)
+library(plyr)
+library("stats")
+library("datasets")
+library("prediction")
+library(tidyverse)
+```
+
 ### 1. Use los mismos conjuntos de entrenamiento y prueba que utilizó en las dos hojas anteriores.
 ```{r}
 datos = read.csv("./train.csv")
