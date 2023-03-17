@@ -8,7 +8,20 @@ output:
 ---
 
 ### 1. Use los mismos conjuntos de entrenamiento y prueba que utilizó en las dos hojas anteriores.
+```{r}
+datos = read.csv("./train.csv")
+test<- read.csv("./test.csv", stringsAsFactors = FALSE)
+```
 
+```{r}
+set_entrenamiento <- sample_frac(datos, .7)
+set_prueba <-setdiff(datos, set_entrenamiento)
+
+
+drop <- c("LotFrontage", "Alley", "MasVnrType", "MasVnrArea", "BsmtQual", "BsmtCond", "BsmtExposure", "BsmtFinType1", "BsmtFinType2", "Electrical", "FireplaceQu", "GarageType", "GarageYrBlt", "GarageFinish", "GarageQual", "GarageCond", "PoolQC", "Fence", "MiscFeature")
+set_entrenamiento <- set_entrenamiento[, !(names(set_entrenamiento) %in% drop)]
+set_prueba <- set_prueba[, !(names(set_prueba) %in% drop)]
+```
 ### 2. Elabore un modelo de regresión usando bayes ingenuo (naive bayes), el conjunto de entrenamiento y la variable respuesta SalesPrice. Prediga con el modelo y explique los resultados a los que llega. Asegúrese que los conjuntos de entrenamiento y prueba sean los mismos de las hojas anteriores para que los modelos sean comparables.
 
 ### 3. Haga un modelo de clasificación, use la variable categórica que hizo con el precio de las casas (barata, media y cara) como variable respuesta.
