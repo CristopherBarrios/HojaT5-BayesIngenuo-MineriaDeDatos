@@ -11,7 +11,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 librerias
-```{r}
+```{r  warning=FALSE, unload=TRUE}
 library(rpart)
 library(rpart.plot)
 library(dplyr) 
@@ -27,6 +27,7 @@ library("stats")
 library("datasets")
 library("prediction")
 library(tidyverse)
+library(e1071)
 ```
 
 ### 1. Use los mismos conjuntos de entrenamiento y prueba que utilizó en las dos hojas anteriores.
@@ -45,10 +46,63 @@ set_entrenamiento <- set_entrenamiento[, !(names(set_entrenamiento) %in% drop)]
 set_prueba <- set_prueba[, !(names(set_prueba) %in% drop)]
 ```
 ### 2. Elabore un modelo de regresión usando bayes ingenuo (naive bayes), el conjunto de entrenamiento y la variable respuesta SalesPrice. Prediga con el modelo y explique los resultados a los que llega. Asegúrese que los conjuntos de entrenamiento y prueba sean los mismos de las hojas anteriores para que los modelos sean comparables.
+```{r }
+#Encontramos los percentiles
+percentil <- quantile(datos$SalePrice)
+#Percentiles
+estado<-c('Estado')
+datos$Estado<-estado
+datos <- within(datos, Estado[SalePrice<=129975] <- 'Economica')
+datos$Estado[(datos$SalePrice>129975 &datos$SalePrice<=163000)] <- 'Intermedia'
+datos$Estado[datos$SalePrice>163000] <- 'Cara'
+
+
+#Bayes 
+porcentaje<-0.7
+#El experimento debe ser repetible
+set.seed(1234)
+corte <- sample(nrow(datos),nrow(datos)*porcentaje)
+
+#Entrenamiento
+train<-datos[corte,]
+#Prueba
+test<-datos[-corte,]
+
+```
+
 
 ### 3. Haga un modelo de clasificación, use la variable categórica que hizo con el precio de las casas (barata, media y cara) como variable respuesta.
+```{r  warning=FALSE, unload=TRUE}
+#Entrenar el modelo
+modelo<-naiveBayes(train$Estado~., data=train)
+
+#Casting 
+test$GrLivArea<-as.numeric(test$GrLivArea)
+test$YearBuilt<-as.numeric(test$YearBuilt)
+test$BsmtUnfSF<-as.numeric(test$BsmtUnfSF)
+test$TotalBsmtSF<-as.numeric(test$TotalBsmtSF)
+test$GarageArea<-as.numeric(test$GarageArea)
+test$YearRemodAdd<-as.numeric(test$YearRemodAdd)
+test$SalePrice<-as.numeric(test$SalePrice)
+test$LotArea<-as.numeric(test$LotArea)
+
+#prediccion
+predBayes<-predict(modelo, newdata = test[,c("GrLivArea","YearBuilt","BsmtUnfSF","TotalBsmtSF","GarageArea","YearRemodAdd", "SalePrice","LotArea")])
+
+#Convertimos la prediccion a factor
+predBayes<-as.factor(predBayes)
+#Creamos la matriz de confusion
+cm<-caret::confusionMatrix(as.factor(predBayes),as.factor(test$Estado))
+cm
+
+```
+
 
 ### 4. Utilice los modelos con el conjunto de prueba y determine la eficiencia del algoritmo para predecir y clasificar.
+```{r}
+table(predBayes)
+table(test$Estado)
+```
 
 ### 5. Analice los resultados del modelo de regresión. ¿Qué tan bien le fue prediciendo?
 
