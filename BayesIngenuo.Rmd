@@ -47,9 +47,10 @@ set_prueba <- set_prueba[, !(names(set_prueba) %in% drop)]
 ```
 ### 2. Elabore un modelo de regresión usando bayes ingenuo (naive bayes), el conjunto de entrenamiento y la variable respuesta SalesPrice. Prediga con el modelo y explique los resultados a los que llega. Asegúrese que los conjuntos de entrenamiento y prueba sean los mismos de las hojas anteriores para que los modelos sean comparables.
 ```{r }
-#Encontramos los percentiles
+#percentiles
 percentil <- quantile(datos$SalePrice)
-#Percentiles
+
+
 estado<-c('Estado')
 datos$Estado<-estado
 datos <- within(datos, Estado[SalePrice<=129975] <- 'Economica')
@@ -59,7 +60,7 @@ datos$Estado[datos$SalePrice>163000] <- 'Cara'
 
 #Bayes 
 porcentaje<-0.7
-#El experimento debe ser repetible
+
 set.seed(1234)
 corte <- sample(nrow(datos),nrow(datos)*porcentaje)
 
@@ -73,7 +74,7 @@ test<-datos[-corte,]
 
 ### 3. Haga un modelo de clasificación, use la variable categórica que hizo con el precio de las casas (barata, media y cara) como variable respuesta.
 ```{r  warning=FALSE, unload=TRUE}
-#Entrenar el modelo
+#modelo
 modelo<-naiveBayes(train$Estado~., data=train)
 
 #Casting 
@@ -89,9 +90,9 @@ test$LotArea<-as.numeric(test$LotArea)
 #prediccion
 predBayes<-predict(modelo, newdata = test[,c("GrLivArea","YearBuilt","BsmtUnfSF","TotalBsmtSF","GarageArea","YearRemodAdd", "SalePrice","LotArea")])
 
-#Convertimos la prediccion a factor
+#Convertimos
 predBayes<-as.factor(predBayes)
-#Creamos la matriz de confusion
+#confusion
 cm<-caret::confusionMatrix(as.factor(predBayes),as.factor(test$Estado))
 cm
 
