@@ -1,0 +1,28 @@
+---
+title: "BayesIngenuo"
+author: "Cristopher Barrios, Carlos Daniel Estrada"
+date: "2023-03-17"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+### 1. Use los mismos conjuntos de entrenamiento y prueba que utilizó en las dos hojas anteriores.
+
+### 2. Elabore un modelo de regresión usando bayes ingenuo (naive bayes), el conjunto de entrenamiento y la variable respuesta SalesPrice. Prediga con el modelo y explique los resultados a los que llega. Asegúrese que los conjuntos de entrenamiento y prueba sean los mismos de las hojas anteriores para que los modelos sean comparables.
+
+### 3. Haga un modelo de clasificación, use la variable categórica que hizo con el precio de las casas (barata, media y cara) como variable respuesta.
+
+### 4. Utilice los modelos con el conjunto de prueba y determine la eficiencia del algoritmo para predecir y clasificar.
+
+### 5. Analice los resultados del modelo de regresión. ¿Qué tan bien le fue prediciendo?
+
+### 6. Compare los resultados con el modelo de regresión lineal y el árbol de regresión que hizo en las hojas pasadas. ¿Cuál funcionó mejor?
+
+### 7. Haga un análisis de la eficiencia del modelo de clasificación usando una matriz de confusión. Tenga en cuenta la efectividad, donde el algoritmo se equivocó más, donde se equivocó menos y la importancia que tienen los errores.
+
+### 8. Analice el modelo. ¿Cree que pueda estar sobre ajustado?
+
+### 9. Haga un modelo usando validación cruzada, compare los resultados de este con los del modelo anterior. ¿Cuál funcionó mejor?
+
+### 10. Compare la eficiencia del algoritmo con el resultado obtenido con el árbol de decisión (el de clasificación) y el modelo de random forest que hizo en la hoja pasada. ¿Cuál es mejor para predecir? ¿Cuál se demoró más en procesar?
