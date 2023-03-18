@@ -33,6 +33,7 @@ library(e1071)
 ### 1. Use los mismos conjuntos de entrenamiento y prueba que utilizó en las dos hojas anteriores.
 ```{r}
 datos = read.csv("./train.csv")
+
 test<- read.csv("./test.csv", stringsAsFactors = FALSE)
 ```
 
@@ -92,17 +93,15 @@ predBayes<-predict(modelo, newdata = test[,c("GrLivArea","YearBuilt","BsmtUnfSF"
 
 #Convertimos
 predBayes<-as.factor(predBayes)
-#confusion
-cm<-caret::confusionMatrix(as.factor(predBayes),as.factor(test$Estado))
-cm
+
 
 ```
 
 
 ### 4. Utilice los modelos con el conjunto de prueba y determine la eficiencia del algoritmo para predecir y clasificar.
 ```{r}
-table(predBayes)
-table(test$Estado)
+prediction <- predict(modelo, test)
+prediction
 ```
 
 ### 5. Analice los resultados del modelo de regresión. ¿Qué tan bien le fue prediciendo?
@@ -110,9 +109,21 @@ table(test$Estado)
 ### 6. Compare los resultados con el modelo de regresión lineal y el árbol de regresión que hizo en las hojas pasadas. ¿Cuál funcionó mejor?
 
 ### 7. Haga un análisis de la eficiencia del modelo de clasificación usando una matriz de confusión. Tenga en cuenta la efectividad, donde el algoritmo se equivocó más, donde se equivocó menos y la importancia que tienen los errores.
+```{r}
+
+#confusion
+cm<-caret::confusionMatrix(as.factor(predBayes),as.factor(test$Estado))
+cm
+```
 
 ### 8. Analice el modelo. ¿Cree que pueda estar sobre ajustado?
 
+Si un modelo presenta un alto nivel de precisión y porcentajes de comportamiento similares, es posible suponer que haya ocurrido un sobreajuste. Sin embargo, para confirmarlo, es necesario compararlo con otro conjunto de datos mediante la validación cruzada. De esta forma, podremos determinar si realmente ha habido sobreajuste o no.
+
 ### 9. Haga un modelo usando validación cruzada, compare los resultados de este con los del modelo anterior. ¿Cuál funcionó mejor?
 
+
+
+
 ### 10. Compare la eficiencia del algoritmo con el resultado obtenido con el árbol de decisión (el de clasificación) y el modelo de random forest que hizo en la hoja pasada. ¿Cuál es mejor para predecir? ¿Cuál se demoró más en procesar?
+
