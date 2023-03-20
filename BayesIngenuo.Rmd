@@ -146,8 +146,8 @@ Tanto el árbol de decision como los valles ingenuos realizaron un mejor trabajo
 ```{r}
 
 #confusion
-cm<-caret::confusionMatrix(as.factor(predBayes),as.factor(test$Estado))
-cm
+#cm<-caret::confusionMatrix(as.factor(predBayes),as.factor(test$Estado))
+#cm
 ```
 
 ### 8. Analice el modelo. ¿Cree que pueda estar sobre ajustado?

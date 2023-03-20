@@ -1,0 +1,829 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={BayesIngenuo},
+  pdfauthor={Cristopher Barrios, Carlos Daniel Estrada},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{BayesIngenuo}
+\author{Cristopher Barrios, Carlos Daniel Estrada}
+\date{2023-03-17}
+
+\begin{document}
+\maketitle
+
+librerias
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(rpart)}
+\FunctionTok{library}\NormalTok{(rpart.plot)}
+\FunctionTok{library}\NormalTok{(dplyr) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(fpc) }
+\FunctionTok{library}\NormalTok{(cluster) }
+\FunctionTok{library}\NormalTok{(}\StringTok{"ggpubr"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: ggplot2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(mclust)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Package 'mclust' version 6.0.0
+## Type 'citation("mclust")' for citing this R package in publications.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(caret)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tree)}
+\FunctionTok{library}\NormalTok{(randomForest)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## randomForest 4.7-1.1
+\end{verbatim}
+
+\begin{verbatim}
+## Type rfNews() to see new features/changes/bug fixes.
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'randomForest'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:ggplot2':
+## 
+##     margin
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:dplyr':
+## 
+##     combine
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(plyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## ------------------------------------------------------------------------------
+\end{verbatim}
+
+\begin{verbatim}
+## You have loaded plyr after dplyr - this is likely to cause problems.
+## If you need functions from both plyr and dplyr, please load plyr first, then dplyr:
+## library(plyr); library(dplyr)
+\end{verbatim}
+
+\begin{verbatim}
+## ------------------------------------------------------------------------------
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'plyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:ggpubr':
+## 
+##     mutate
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:dplyr':
+## 
+##     arrange, count, desc, failwith, id, mutate, rename, summarise,
+##     summarize
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(}\StringTok{"stats"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"datasets"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(}\StringTok{"prediction"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## -- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
+## v forcats   1.0.0     v stringr   1.5.0
+## v lubridate 1.9.2     v tibble    3.1.8
+## v purrr     1.0.1     v tidyr     1.3.0
+## v readr     2.1.4
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x plyr::arrange()         masks dplyr::arrange()
+## x randomForest::combine() masks dplyr::combine()
+## x purrr::compact()        masks plyr::compact()
+## x plyr::count()           masks dplyr::count()
+## x plyr::desc()            masks dplyr::desc()
+## x plyr::failwith()        masks dplyr::failwith()
+## x dplyr::filter()         masks stats::filter()
+## x plyr::id()              masks dplyr::id()
+## x dplyr::lag()            masks stats::lag()
+## x purrr::lift()           masks caret::lift()
+## x purrr::map()            masks mclust::map()
+## x randomForest::margin()  masks ggplot2::margin()
+## x plyr::mutate()          masks ggpubr::mutate(), dplyr::mutate()
+## x plyr::rename()          masks dplyr::rename()
+## x plyr::summarise()       masks dplyr::summarise()
+## x plyr::summarize()       masks dplyr::summarize()
+## i Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(e1071)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{use-los-mismos-conjuntos-de-entrenamiento-y-prueba-que-utilizuxf3-en-las-dos-hojas-anteriores.}{%
+\subsubsection{1. Use los mismos conjuntos de entrenamiento y prueba que
+utilizó en las dos hojas
+anteriores.}\label{use-los-mismos-conjuntos-de-entrenamiento-y-prueba-que-utilizuxf3-en-las-dos-hojas-anteriores.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\OtherTok{=} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"./train.csv"}\NormalTok{)}
+
+\NormalTok{test}\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"./test.csv"}\NormalTok{, }\AttributeTok{stringsAsFactors =} \ConstantTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{set\_entrenamiento }\OtherTok{\textless{}{-}} \FunctionTok{sample\_frac}\NormalTok{(datos, .}\DecValTok{7}\NormalTok{)}
+\NormalTok{set\_prueba }\OtherTok{\textless{}{-}}\FunctionTok{setdiff}\NormalTok{(datos, set\_entrenamiento)}
+
+
+\NormalTok{drop }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"LotFrontage"}\NormalTok{, }\StringTok{"Alley"}\NormalTok{, }\StringTok{"MasVnrType"}\NormalTok{, }\StringTok{"MasVnrArea"}\NormalTok{, }\StringTok{"BsmtQual"}\NormalTok{, }\StringTok{"BsmtCond"}\NormalTok{, }\StringTok{"BsmtExposure"}\NormalTok{, }\StringTok{"BsmtFinType1"}\NormalTok{, }\StringTok{"BsmtFinType2"}\NormalTok{, }\StringTok{"Electrical"}\NormalTok{, }\StringTok{"FireplaceQu"}\NormalTok{, }\StringTok{"GarageType"}\NormalTok{, }\StringTok{"GarageYrBlt"}\NormalTok{, }\StringTok{"GarageFinish"}\NormalTok{, }\StringTok{"GarageQual"}\NormalTok{, }\StringTok{"GarageCond"}\NormalTok{, }\StringTok{"PoolQC"}\NormalTok{, }\StringTok{"Fence"}\NormalTok{, }\StringTok{"MiscFeature"}\NormalTok{)}
+\NormalTok{set\_entrenamiento }\OtherTok{\textless{}{-}}\NormalTok{ set\_entrenamiento[, }\SpecialCharTok{!}\NormalTok{(}\FunctionTok{names}\NormalTok{(set\_entrenamiento) }\SpecialCharTok{\%in\%}\NormalTok{ drop)]}
+\NormalTok{set\_prueba }\OtherTok{\textless{}{-}}\NormalTok{ set\_prueba[, }\SpecialCharTok{!}\NormalTok{(}\FunctionTok{names}\NormalTok{(set\_prueba) }\SpecialCharTok{\%in\%}\NormalTok{ drop)]}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{elabore-un-modelo-de-regresiuxf3n-usando-bayes-ingenuo-naive-bayes-el-conjunto-de-entrenamiento-y-la-variable-respuesta-salesprice.-prediga-con-el-modelo-y-explique-los-resultados-a-los-que-llega.-aseguxfarese-que-los-conjuntos-de-entrenamiento-y-prueba-sean-los-mismos-de-las-hojas-anteriores-para-que-los-modelos-sean-comparables.}{%
+\subsubsection{2. Elabore un modelo de regresión usando bayes ingenuo
+(naive bayes), el conjunto de entrenamiento y la variable respuesta
+SalesPrice. Prediga con el modelo y explique los resultados a los que
+llega. Asegúrese que los conjuntos de entrenamiento y prueba sean los
+mismos de las hojas anteriores para que los modelos sean
+comparables.}\label{elabore-un-modelo-de-regresiuxf3n-usando-bayes-ingenuo-naive-bayes-el-conjunto-de-entrenamiento-y-la-variable-respuesta-salesprice.-prediga-con-el-modelo-y-explique-los-resultados-a-los-que-llega.-aseguxfarese-que-los-conjuntos-de-entrenamiento-y-prueba-sean-los-mismos-de-las-hojas-anteriores-para-que-los-modelos-sean-comparables.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#percentiles}
+\NormalTok{percentil }\OtherTok{\textless{}{-}} \FunctionTok{quantile}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{SalePrice)}
+
+
+\NormalTok{estado}\OtherTok{\textless{}{-}}\FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Estado\textquotesingle{}}\NormalTok{)}
+\NormalTok{datos}\SpecialCharTok{$}\NormalTok{Estado}\OtherTok{\textless{}{-}}\NormalTok{estado}
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{within}\NormalTok{(datos, Estado[SalePrice}\SpecialCharTok{\textless{}=}\DecValTok{129975}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}Economica\textquotesingle{}}\NormalTok{)}
+\NormalTok{datos}\SpecialCharTok{$}\NormalTok{Estado[(datos}\SpecialCharTok{$}\NormalTok{SalePrice}\SpecialCharTok{\textgreater{}}\DecValTok{129975} \SpecialCharTok{\&}\NormalTok{datos}\SpecialCharTok{$}\NormalTok{SalePrice}\SpecialCharTok{\textless{}=}\DecValTok{163000}\NormalTok{)] }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}Intermedia\textquotesingle{}}
+\NormalTok{datos}\SpecialCharTok{$}\NormalTok{Estado[datos}\SpecialCharTok{$}\NormalTok{SalePrice}\SpecialCharTok{\textgreater{}}\DecValTok{163000}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}Cara\textquotesingle{}}
+
+
+\CommentTok{\#Bayes }
+\NormalTok{porcentaje}\OtherTok{\textless{}{-}}\FloatTok{0.7}
+
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{1234}\NormalTok{)}
+\NormalTok{corte }\OtherTok{\textless{}{-}} \FunctionTok{sample}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(datos),}\FunctionTok{nrow}\NormalTok{(datos)}\SpecialCharTok{*}\NormalTok{porcentaje)}
+
+\CommentTok{\#Entrenamiento}
+\NormalTok{train}\OtherTok{\textless{}{-}}\NormalTok{datos[corte,]}
+\CommentTok{\#Prueba}
+\NormalTok{test}\OtherTok{\textless{}{-}}\NormalTok{datos[}\SpecialCharTok{{-}}\NormalTok{corte,]}
+
+\NormalTok{corte}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    [1] 1308 1018 1125 1004  623  905  645  934  400  900   98 1127  726  326
+##   [15] 1103  884  270 1406  184  574    4  552 1236  952 1219  996  479  634
+##   [29]  901  578 1403 1132  131 1367 1065 1014  740  298  258   79 1206  305
+##   [43] 1382  696  307  902 1329 1245  561 1337  136 1169  959  123 1258  608
+##   [57]  495  534  803 1321  208 1155  854  569  951  248 1389  665  595  434
+##   [71]  757  760 1242  276  169 1095  573  864 1447  485  460  840   60  449
+##   [85]  548 1043  638  319 1140  145  102  214  390  597  160 1101  529  126
+##   [99]  262  442  181  976  779  828  868  163  228  789  938 1370  646 1289
+##  [113]  427 1375 1273 1430   40  877 1452  806  670  838  478  598 1166  659
+##  [127]   71  457  891 1212  488  912  215  540  613  917  937  931  296  328
+##  [141] 1171  889 1108 1107  250 1364  281  898  869  687  431 1054   10 1345
+##  [155] 1412  585 1036  293  849  303 1320  107  752  543  775 1028   43  189
+##  [169]  911  171   39  810  216   58  395 1208  456 1046 1194 1445  588   63
+##  [183] 1282  417 1384  886 1094   59  804  203 1251 1267  413  577  542  476
+##  [197]  940  979  522  405  716  607  801  501  429  778  982  205 1128 1234
+##  [211]  471   66   88  601  309  142  294  715 1184  116  929  993  480 1039
+##  [225]  486  254  725 1314 1202 1131  627  194  742  962 1432  894  365  421
+##  [239]  823 1179 1190  207 1129  587  280  972  440  389  499  991  251 1326
+##  [253]  463 1211  100  919  141  924  379 1060  626 1387 1313  708 1110  138
+##  [267]  344  681  461  727 1421 1266 1433  700 1398 1404  371  380   97   49
+##  [281]  754  815  475  174 1371  183  347 1098 1413 1438  118 1246  357  155
+##  [295] 1409   61 1379 1298 1100 1111  335 1000   13  637 1024  526   41  545
+##  [309]  772  334 1119  269  731  746  755 1003 1292   53  367  875  420   54
+##  [323]  689  782 1172  831  768 1204 1150  191  843  771  694 1173  170  530
+##  [337]   67   34  504  562 1185  166  936  350 1055  547  724  508  491  308
+##  [351]  615  580 1400 1306   11  711   19  730  617  784  920  235  793  669
+##  [365]  487  956  346  895  199  165 1383  865  614 1158  916  930  618  535
+##  [379] 1025  609  241  980  563 1008 1207  853 1145 1317  348  998  893  201
+##  [393]  127 1368  576   25  633  822 1374  786  830  926  570  135 1083  788
+##  [407] 1271  790  224  698  206  647  589  833 1157  286 1402 1425 1066  668
+##  [421] 1231  237  600  625  399  922  674  321  284 1085  382  462  128  161
+##  [435] 1142 1388  807  477  222  352  888   85 1428 1347 1297  150  159 1443
+##  [449]  361 1049  743  811 1339  675  227  374  391  331  204  908   57  969
+##  [463]  866  541  377  639   55  494 1118 1191  279  677  702 1005  132 1192
+##  [477]  263  973   76  340  703 1133  238  841  741 1217  630  953  704  223
+##  [491]  354  218  187 1381 1064   23 1276 1240 1334 1012  932 1205  688 1316
+##  [505]  343 1032 1419 1407  383 1454  514 1274   38  791  946  292  565  469
+##  [519] 1349  983  366 1203  925  533  422  112  396  124  356  550   91  259
+##  [533] 1182  848 1074 1115   17 1307  870  306 1277 1116  464 1023  234  544
+##  [547] 1396  441 1385 1227  304  737  226  311  680 1093  524 1453  954  278
+##  [561]  733 1284 1174  275   86  762 1358  923  385  776  622 1090  402 1104
+##  [575]  554 1390  272   32  933 1331  516  606  103  525  655  373 1073 1123
+##  [589] 1343  341  792  765  177 1091  523 1312 1335 1279 1328 1399 1215 1304
+##  [603] 1146  489 1126  511  515  353  122 1022 1079   48  958 1177  519  780
+##  [617] 1327 1300 1416 1235  648  339  406  686  549 1084  474  667  691 1168
+##  [631]   27 1363 1429 1226  904 1033  672  844 1163  289  967  809 1431  918
+##  [645]  909 1035 1198 1372  664 1057  372 1318 1444  986  260  437  856  482
+##  [659] 1069  153  537   82 1186  283 1076 1291 1183 1077  896  119 1112  825
+##  [673]  518  624 1309   64  881 1448  971 1200  244  536 1159 1144  928 1154
+##  [687]  564  907  812 1252  436  453  990  799  225 1038 1068 1360  602 1315
+##  [701]  566  769  783  369  297   35  192  834  699 1342  324  955  603 1161
+##  [715]  673 1332  781 1302  697 1299  114  448  473  739  899 1096 1201 1037
+##  [729] 1287 1401  653  988 1434  635  583  217  977  162  318  425   65 1044
+##  [743]  728  493 1435 1216 1281  882  797  125 1181  333 1392  338  531  821
+##  [757]  985  137 1170   95 1238  798 1255  652  465  467  878  202 1311 1102
+##  [771] 1148  176 1221  368  273  459  245  253 1354  885 1449 1230   83  684
+##  [785]  466 1288 1143 1243 1053   94  520  546  387  994  861 1357    6  572
+##  [799]  836 1002  182  660  261  454 1052 1340  451  510  109 1366  312 1120
+##  [813]  407  424  827  944  452 1344  539  734  981  701 1232 1162  759  751
+##  [827]  968 1259  883  832  388   45  796 1040  438 1213  295  164  412  386
+##  [841]  288   96 1187  997   81 1286  785  950 1410  111 1262 1446  590  458
+##  [855]  758 1386  152  414  435 1265   30  749 1010 1089 1391  313 1149 1394
+##  [869]  632 1249  756 1029 1139 1078  631  455 1411 1365 1338  384  692  846
+##  [883] 1442  236  401  568  168  820  582  718  193 1441  220  867  268   42
+##  [897]  322  735  430  290  532  666   51  432 1020  484 1009  349  992 1294
+##  [911]  178  995 1254 1244  129  753  581  134  656  604  232   73  320  381
+##  [925] 1260 1134  750  233 1006 1156 1176  663 1423 1261  538  945  256  252
+##  [939] 1109  829  678  555  362 1422 1241 1346  104  115 1293   99    9   33
+##  [953]  644  906  337  641  428  989  683  558  661   80  640 1135  890  242
+##  [967] 1059  767  483  472 1180  378    3  748   78  502  329  403 1275 1418
+##  [981]  419 1256 1247  717  636  592 1336  355  842  910  948  927   77 1229
+##  [995]  147  693  247  787  628 1130   37  336 1056 1153  942  612  291  915
+## [1009]  935  847  200  643  593  481  196 1408  157  151  500  470 1031
+\end{verbatim}
+
+Se ultilizo el mismo set de prueba anteriorior \#\#\# 3. Haga un modelo
+de clasificación, use la variable categórica que hizo con el precio de
+las casas (barata, media y cara) como variable respuesta.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#modelo}
+\NormalTok{modelo}\OtherTok{\textless{}{-}}\FunctionTok{naiveBayes}\NormalTok{(train}\SpecialCharTok{$}\NormalTok{Estado}\SpecialCharTok{\textasciitilde{}}\NormalTok{., }\AttributeTok{data=}\NormalTok{train)}
+
+\CommentTok{\#Casting }
+\NormalTok{test}\SpecialCharTok{$}\NormalTok{GrLivArea}\OtherTok{\textless{}{-}}\FunctionTok{as.numeric}\NormalTok{(test}\SpecialCharTok{$}\NormalTok{GrLivArea)}
+\NormalTok{test}\SpecialCharTok{$}\NormalTok{YearBuilt}\OtherTok{\textless{}{-}}\FunctionTok{as.numeric}\NormalTok{(test}\SpecialCharTok{$}\NormalTok{YearBuilt)}
+\NormalTok{test}\SpecialCharTok{$}\NormalTok{BsmtUnfSF}\OtherTok{\textless{}{-}}\FunctionTok{as.numeric}\NormalTok{(test}\SpecialCharTok{$}\NormalTok{BsmtUnfSF)}
+\NormalTok{test}\SpecialCharTok{$}\NormalTok{TotalBsmtSF}\OtherTok{\textless{}{-}}\FunctionTok{as.numeric}\NormalTok{(test}\SpecialCharTok{$}\NormalTok{TotalBsmtSF)}
+\NormalTok{test}\SpecialCharTok{$}\NormalTok{GarageArea}\OtherTok{\textless{}{-}}\FunctionTok{as.numeric}\NormalTok{(test}\SpecialCharTok{$}\NormalTok{GarageArea)}
+\NormalTok{test}\SpecialCharTok{$}\NormalTok{YearRemodAdd}\OtherTok{\textless{}{-}}\FunctionTok{as.numeric}\NormalTok{(test}\SpecialCharTok{$}\NormalTok{YearRemodAdd)}
+\NormalTok{test}\SpecialCharTok{$}\NormalTok{SalePrice}\OtherTok{\textless{}{-}}\FunctionTok{as.numeric}\NormalTok{(test}\SpecialCharTok{$}\NormalTok{SalePrice)}
+\NormalTok{test}\SpecialCharTok{$}\NormalTok{LotArea}\OtherTok{\textless{}{-}}\FunctionTok{as.numeric}\NormalTok{(test}\SpecialCharTok{$}\NormalTok{LotArea)}
+
+\CommentTok{\#prediccion}
+\NormalTok{predBayes}\OtherTok{\textless{}{-}}\FunctionTok{predict}\NormalTok{(modelo, }\AttributeTok{newdata =}\NormalTok{ test[,}\FunctionTok{c}\NormalTok{(}\StringTok{"GrLivArea"}\NormalTok{,}\StringTok{"YearBuilt"}\NormalTok{,}\StringTok{"BsmtUnfSF"}\NormalTok{,}\StringTok{"TotalBsmtSF"}\NormalTok{,}\StringTok{"GarageArea"}\NormalTok{,}\StringTok{"YearRemodAdd"}\NormalTok{, }\StringTok{"SalePrice"}\NormalTok{,}\StringTok{"LotArea"}\NormalTok{)])}
+
+\CommentTok{\#Convertimos}
+\NormalTok{predBayes}\OtherTok{\textless{}{-}}\FunctionTok{as.factor}\NormalTok{(predBayes)}
+
+\NormalTok{predBayes}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] Cara       Cara       Cara       Cara       Cara       Cara      
+##   [7] Cara       Intermedia Intermedia Economica  Intermedia Cara      
+##  [13] Economica  Intermedia Cara       Cara       Cara       Economica 
+##  [19] Cara       Economica  Cara       Cara       Economica  Economica 
+##  [25] Cara       Economica  Cara       Economica  Cara       Intermedia
+##  [31] Intermedia Economica  Economica  Cara       Economica  Economica 
+##  [37] Economica  Intermedia Cara       Intermedia Cara       Economica 
+##  [43] Cara       Cara       Intermedia Intermedia Cara       Intermedia
+##  [49] Intermedia Cara       Cara       Intermedia Cara       Cara      
+##  [55] Cara       Intermedia Cara       Economica  Cara       Cara      
+##  [61] Cara       Cara       Cara       Cara       Economica  Economica 
+##  [67] Cara       Economica  Cara       Economica  Cara       Cara      
+##  [73] Cara       Intermedia Economica  Cara       Cara       Cara      
+##  [79] Cara       Economica  Cara       Intermedia Cara       Economica 
+##  [85] Economica  Cara       Cara       Intermedia Cara       Intermedia
+##  [91] Economica  Cara       Cara       Cara       Intermedia Cara      
+##  [97] Cara       Cara       Intermedia Cara       Intermedia Intermedia
+## [103] Cara       Cara       Economica  Cara       Cara       Cara      
+## [109] Cara       Cara       Cara       Economica  Intermedia Economica 
+## [115] Economica  Cara       Intermedia Economica  Cara       Cara      
+## [121] Economica  Intermedia Cara       Economica  Cara       Economica 
+## [127] Economica  Economica  Intermedia Cara       Intermedia Cara      
+## [133] Cara       Economica  Cara       Cara       Cara       Intermedia
+## [139] Intermedia Economica  Economica  Intermedia Cara       Cara      
+## [145] Intermedia Cara       Economica  Intermedia Economica  Economica 
+## [151] Economica  Cara       Economica  Intermedia Intermedia Economica 
+## [157] Cara       Intermedia Cara       Economica  Intermedia Economica 
+## [163] Intermedia Cara       Intermedia Cara       Economica  Intermedia
+## [169] Cara       Cara       Cara       Intermedia Intermedia Intermedia
+## [175] Cara       Cara       Cara       Intermedia Cara       Cara      
+## [181] Cara       Economica  Cara       Intermedia Cara       Cara      
+## [187] Economica  Intermedia Cara       Intermedia Economica  Cara      
+## [193] Economica  Intermedia Intermedia Cara       Cara       Intermedia
+## [199] Cara       Intermedia Cara       Cara       Intermedia Cara      
+## [205] Economica  Cara       Cara       Economica  Economica  Cara      
+## [211] Intermedia Cara       Economica  Cara       Intermedia Economica 
+## [217] Cara       Cara       Intermedia Cara       Cara       Cara      
+## [223] Cara       Economica  Cara       Cara       Cara       Cara      
+## [229] Economica  Economica  Cara       Cara       Cara       Intermedia
+## [235] Economica  Economica  Cara       Economica  Intermedia Cara      
+## [241] Intermedia Cara       Intermedia Economica  Cara       Intermedia
+## [247] Intermedia Intermedia Intermedia Cara       Intermedia Cara      
+## [253] Cara       Intermedia Cara       Intermedia Cara       Intermedia
+## [259] Intermedia Economica  Cara       Economica  Economica  Cara      
+## [265] Intermedia Intermedia Intermedia Cara       Economica  Cara      
+## [271] Economica  Intermedia Cara       Cara       Intermedia Intermedia
+## [277] Intermedia Cara       Economica  Intermedia Economica  Intermedia
+## [283] Cara       Cara       Cara       Intermedia Cara       Intermedia
+## [289] Cara       Cara       Economica  Economica  Economica  Intermedia
+## [295] Intermedia Intermedia Economica  Cara       Cara       Intermedia
+## [301] Cara       Economica  Intermedia Economica  Cara       Intermedia
+## [307] Cara       Cara       Intermedia Intermedia Economica  Cara      
+## [313] Cara       Cara       Economica  Economica  Cara       Intermedia
+## [319] Economica  Intermedia Cara       Economica  Intermedia Economica 
+## [325] Intermedia Economica  Cara       Intermedia Economica  Economica 
+## [331] Economica  Cara       Economica  Intermedia Cara       Economica 
+## [337] Cara       Economica  Economica  Economica  Economica  Intermedia
+## [343] Cara       Economica  Intermedia Cara       Economica  Cara      
+## [349] Cara       Cara       Economica  Cara       Cara       Economica 
+## [355] Intermedia Cara       Cara       Cara       Intermedia Cara      
+## [361] Intermedia Cara       Economica  Intermedia Intermedia Intermedia
+## [367] Cara       Intermedia Economica  Cara       Intermedia Cara      
+## [373] Economica  Economica  Cara       Intermedia Intermedia Cara      
+## [379] Cara       Intermedia Cara       Cara       Economica  Intermedia
+## [385] Intermedia Cara       Economica  Intermedia Cara       Cara      
+## [391] Cara       Cara       Cara       Economica  Cara       Economica 
+## [397] Cara       Cara       Economica  Economica  Cara       Economica 
+## [403] Cara       Intermedia Intermedia Cara       Cara       Cara      
+## [409] Cara       Cara       Intermedia Cara       Cara       Economica 
+## [415] Economica  Intermedia Economica  Cara       Cara       Economica 
+## [421] Cara       Cara       Economica  Cara       Cara       Intermedia
+## [427] Cara       Cara       Economica  Intermedia Cara       Economica 
+## [433] Intermedia Cara       Cara       Cara       Cara       Intermedia
+## [439] Intermedia
+## Levels: Cara Economica Intermedia
+\end{verbatim}
+
+El modelo clasifica las casas en economica, intermedia en cara según el
+parametro utilizado en la hoja anterior, \textless{} 170,000 dólares es
+económica, entre 171,000 y 289,000 dólares es de un valor intermedio, y
+\textgreater{} 290,000 dolares es una casa cara.
+
+\hypertarget{utilice-los-modelos-con-el-conjunto-de-prueba-y-determine-la-eficiencia-del-algoritmo-para-predecir-y-clasificar.}{%
+\subsubsection{4. Utilice los modelos con el conjunto de prueba y
+determine la eficiencia del algoritmo para predecir y
+clasificar.}\label{utilice-los-modelos-con-el-conjunto-de-prueba-y-determine-la-eficiencia-del-algoritmo-para-predecir-y-clasificar.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{prediction }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(modelo, test)}
+\NormalTok{prediction}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1] Cara       Intermedia Cara       Cara       Cara       Cara      
+##   [7] Cara       Intermedia Economica  Economica  Economica  Cara      
+##  [13] Economica  Economica  Cara       Cara       Cara       Economica 
+##  [19] Cara       Economica  Cara       Cara       Economica  Economica 
+##  [25] Cara       Economica  Cara       Economica  Cara       Economica 
+##  [31] Economica  Economica  Economica  Cara       Economica  Economica 
+##  [37] Economica  Economica  Cara       Intermedia Cara       Economica 
+##  [43] Cara       Cara       Economica  Cara       Cara       Cara      
+##  [49] Economica  Cara       Cara       Economica  Cara       Economica 
+##  [55] Cara       Economica  Cara       Economica  Cara       Cara      
+##  [61] Cara       Cara       Cara       Cara       Economica  Economica 
+##  [67] Cara       Cara       Cara       Economica  Cara       Cara      
+##  [73] Cara       Intermedia Economica  Cara       Cara       Cara      
+##  [79] Cara       Economica  Cara       Economica  Cara       Economica 
+##  [85] Economica  Cara       Cara       Economica  Cara       Economica 
+##  [91] Economica  Cara       Cara       Cara       Intermedia Cara      
+##  [97] Cara       Cara       Intermedia Intermedia Intermedia Intermedia
+## [103] Cara       Cara       Economica  Economica  Cara       Cara      
+## [109] Cara       Cara       Cara       Economica  Economica  Economica 
+## [115] Economica  Cara       Intermedia Economica  Cara       Cara      
+## [121] Economica  Intermedia Cara       Economica  Cara       Intermedia
+## [127] Economica  Economica  Intermedia Cara       Economica  Cara      
+## [133] Cara       Economica  Cara       Cara       Cara       Economica 
+## [139] Economica  Economica  Economica  Economica  Cara       Cara      
+## [145] Economica  Cara       Economica  Intermedia Economica  Economica 
+## [151] Economica  Cara       Economica  Economica  Intermedia Economica 
+## [157] Cara       Economica  Cara       Economica  Intermedia Economica 
+## [163] Economica  Cara       Intermedia Cara       Economica  Intermedia
+## [169] Cara       Cara       Cara       Intermedia Economica  Cara      
+## [175] Cara       Cara       Cara       Intermedia Cara       Cara      
+## [181] Cara       Economica  Cara       Economica  Cara       Cara      
+## [187] Economica  Intermedia Cara       Intermedia Economica  Cara      
+## [193] Economica  Economica  Economica  Cara       Cara       Economica 
+## [199] Cara       Economica  Cara       Cara       Economica  Cara      
+## [205] Intermedia Cara       Cara       Economica  Economica  Cara      
+## [211] Economica  Cara       Economica  Cara       Intermedia Economica 
+## [217] Economica  Cara       Economica  Cara       Intermedia Cara      
+## [223] Cara       Economica  Cara       Cara       Cara       Cara      
+## [229] Economica  Economica  Cara       Cara       Cara       Economica 
+## [235] Economica  Economica  Cara       Economica  Economica  Cara      
+## [241] Economica  Cara       Economica  Economica  Cara       Economica 
+## [247] Economica  Intermedia Economica  Cara       Intermedia Cara      
+## [253] Cara       Intermedia Cara       Intermedia Cara       Economica 
+## [259] Economica  Economica  Cara       Economica  Economica  Cara      
+## [265] Intermedia Economica  Intermedia Intermedia Economica  Cara      
+## [271] Economica  Economica  Cara       Cara       Intermedia Economica 
+## [277] Economica  Cara       Economica  Cara       Economica  Intermedia
+## [283] Cara       Cara       Cara       Economica  Cara       Intermedia
+## [289] Cara       Cara       Economica  Economica  Economica  Intermedia
+## [295] Economica  Economica  Economica  Cara       Cara       Cara      
+## [301] Cara       Economica  Intermedia Economica  Cara       Intermedia
+## [307] Intermedia Cara       Cara       Intermedia Economica  Cara      
+## [313] Cara       Cara       Economica  Economica  Cara       Economica 
+## [319] Intermedia Intermedia Cara       Economica  Cara       Economica 
+## [325] Intermedia Economica  Cara       Cara       Economica  Economica 
+## [331] Economica  Cara       Economica  Economica  Cara       Economica 
+## [337] Cara       Economica  Economica  Economica  Economica  Economica 
+## [343] Cara       Economica  Intermedia Cara       Economica  Cara      
+## [349] Cara       Cara       Economica  Cara       Cara       Economica 
+## [355] Intermedia Cara       Cara       Cara       Economica  Cara      
+## [361] Intermedia Cara       Economica  Economica  Economica  Intermedia
+## [367] Cara       Economica  Economica  Cara       Economica  Intermedia
+## [373] Economica  Economica  Cara       Economica  Economica  Cara      
+## [379] Cara       Economica  Cara       Cara       Economica  Intermedia
+## [385] Intermedia Cara       Economica  Intermedia Cara       Cara      
+## [391] Cara       Cara       Cara       Economica  Cara       Economica 
+## [397] Cara       Cara       Economica  Economica  Cara       Economica 
+## [403] Intermedia Intermedia Economica  Cara       Cara       Cara      
+## [409] Economica  Cara       Intermedia Cara       Cara       Economica 
+## [415] Economica  Cara       Economica  Cara       Cara       Economica 
+## [421] Cara       Intermedia Economica  Cara       Cara       Economica 
+## [427] Cara       Intermedia Economica  Economica  Cara       Economica 
+## [433] Economica  Cara       Cara       Cara       Cara       Economica 
+## [439] Intermedia
+## Levels: Cara Economica Intermedia
+\end{verbatim}
+
+\hypertarget{analice-los-resultados-del-modelo-de-regresiuxf3n.-quuxe9-tan-bien-le-fue-prediciendo}{%
+\subsubsection{5. Analice los resultados del modelo de regresión. ¿Qué
+tan bien le fue
+prediciendo?}\label{analice-los-resultados-del-modelo-de-regresiuxf3n.-quuxe9-tan-bien-le-fue-prediciendo}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mse }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{((prediction }\SpecialCharTok{{-}}\NormalTok{ test}
+             \SpecialCharTok{$}\NormalTok{SalePrice)}\SpecialCharTok{**}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in Ops.factor(prediction, test$SalePrice): '-' not meaningful for
+## factors
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mse}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] NA
+\end{verbatim}
+
+Se puede observar que el modelo pudo predecir la mayor parte de los
+datos de prueba, por lo que se puede decir que está bien implementado.
+
+\hypertarget{compare-los-resultados-con-el-modelo-de-regresiuxf3n-lineal-y-el-uxe1rbol-de-regresiuxf3n-que-hizo-en-las-hojas-pasadas.-cuuxe1l-funcionuxf3-mejor}{%
+\subsubsection{6. Compare los resultados con el modelo de regresión
+lineal y el árbol de regresión que hizo en las hojas pasadas. ¿Cuál
+funcionó
+mejor?}\label{compare-los-resultados-con-el-modelo-de-regresiuxf3n-lineal-y-el-uxe1rbol-de-regresiuxf3n-que-hizo-en-las-hojas-pasadas.-cuuxe1l-funcionuxf3-mejor}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{porciento }\OtherTok{\textless{}{-}} \DecValTok{70}\SpecialCharTok{/}\DecValTok{100}
+\NormalTok{datos}\SpecialCharTok{$}\NormalTok{clasificacion }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{SalePrice }\SpecialCharTok{\textless{}=} \DecValTok{251000}\NormalTok{, }\StringTok{"Economicas"}\NormalTok{, }\FunctionTok{ifelse}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{SalePrice }\SpecialCharTok{\textless{}=} \DecValTok{538000}\NormalTok{, }\StringTok{"Intermedias"}\NormalTok{, }\FunctionTok{ifelse}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{SalePrice }\SpecialCharTok{\textless{}=} \DecValTok{755000}\NormalTok{, }\StringTok{"Caras"}\NormalTok{)))}
+
+\NormalTok{datos}\SpecialCharTok{$}\NormalTok{y }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{factor}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{clasificacion))}
+\NormalTok{datosCC }\OtherTok{\textless{}{-}}\NormalTok{ datos[,}\FunctionTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{18}\NormalTok{,}\DecValTok{19}\NormalTok{,}\DecValTok{20}\NormalTok{,}\DecValTok{21}\NormalTok{,}\DecValTok{27}\NormalTok{,}\DecValTok{35}\NormalTok{,}\DecValTok{37}\NormalTok{,}\DecValTok{38}\NormalTok{,}\DecValTok{39}\NormalTok{,}\DecValTok{44}\NormalTok{,}\DecValTok{45}\NormalTok{,}\DecValTok{46}\NormalTok{,}\DecValTok{47}\NormalTok{,}\DecValTok{48}\NormalTok{,}\DecValTok{49}\NormalTok{,}\DecValTok{50}\NormalTok{,}\DecValTok{51}\NormalTok{,}\DecValTok{52}\NormalTok{,}\DecValTok{53}\NormalTok{,}\DecValTok{55}\NormalTok{,}\DecValTok{57}\NormalTok{,}\DecValTok{60}\NormalTok{,}\DecValTok{62}\NormalTok{,}\DecValTok{63}\NormalTok{,}\DecValTok{67}\NormalTok{,}\DecValTok{68}\NormalTok{,}\DecValTok{69}\NormalTok{,}\DecValTok{70}\NormalTok{,}\DecValTok{71}\NormalTok{,}\DecValTok{72}\NormalTok{,}\DecValTok{76}\NormalTok{,}\DecValTok{77}\NormalTok{,}\DecValTok{78}\NormalTok{,}\DecValTok{81}\NormalTok{,}\DecValTok{83}\NormalTok{)]}
+\NormalTok{datosCC }\OtherTok{\textless{}{-}}\NormalTok{ datosCC[,}\FunctionTok{colSums}\NormalTok{(}\FunctionTok{is.na}\NormalTok{(datosCC))}\SpecialCharTok{==}\DecValTok{0}\NormalTok{]}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{trainRowsNumber}\OtherTok{\textless{}{-}}\FunctionTok{sample}\NormalTok{(}\FunctionTok{nrow}\NormalTok{(datosCC),porciento}\SpecialCharTok{*}\FunctionTok{nrow}\NormalTok{(datosCC))}
+\NormalTok{train}\OtherTok{\textless{}{-}}\NormalTok{datosCC[trainRowsNumber,]}
+\NormalTok{test}\OtherTok{\textless{}{-}}\NormalTok{datosCC[}\SpecialCharTok{{-}}\NormalTok{trainRowsNumber,]}
+
+\NormalTok{fitLM}\OtherTok{\textless{}{-}}\FunctionTok{lm}\NormalTok{(SalePrice}\SpecialCharTok{\textasciitilde{}}\NormalTok{., }\AttributeTok{data =}\NormalTok{ train) }
+\FunctionTok{summary}\NormalTok{(fitLM)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = SalePrice ~ ., data = train)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -229934  -12330    -863   11181  148094 
+## 
+## Coefficients: (2 not defined because of singularities)
+##                            Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)               2.895e+05  1.240e+06   0.233 0.815511    
+## MSSubClass               -1.093e+02  2.350e+01  -4.651 3.75e-06 ***
+## OverallQual               1.077e+04  1.089e+03   9.891  < 2e-16 ***
+## OverallCond               4.500e+03  9.176e+02   4.904 1.10e-06 ***
+## YearBuilt                 3.589e+02  5.506e+01   6.518 1.14e-10 ***
+## YearRemodAdd              1.477e+02  5.858e+01   2.522 0.011821 *  
+## BsmtFinSF1                5.849e+00  4.214e+00   1.388 0.165415    
+## BsmtFinSF2               -9.181e-01  6.410e+00  -0.143 0.886139    
+## BsmtUnfSF                 2.243e+00  3.853e+00   0.582 0.560666    
+## TotalBsmtSF                      NA         NA      NA       NA    
+## X1stFlrSF                 2.957e+01  5.291e+00   5.588 2.96e-08 ***
+## X2ndFlrSF                 2.445e+01  4.375e+00   5.588 2.98e-08 ***
+## LowQualFinSF              3.424e+01  1.668e+01   2.053 0.040348 *  
+## GrLivArea                        NA         NA      NA       NA    
+## BsmtFullBath              8.424e+03  2.310e+03   3.646 0.000280 ***
+## BsmtHalfBath              5.419e+03  3.877e+03   1.398 0.162436    
+## FullBath                  8.066e+03  2.540e+03   3.176 0.001540 ** 
+## HalfBath                  3.348e+03  2.355e+03   1.422 0.155457    
+## BedroomAbvGr             -3.838e+03  1.520e+03  -2.525 0.011740 *  
+## KitchenAbvGr             -1.267e+04  4.603e+03  -2.753 0.006007 ** 
+## TotRmsAbvGrd              3.293e+03  1.106e+03   2.977 0.002979 ** 
+## Fireplaces                5.407e+03  1.549e+03   3.491 0.000503 ***
+## GarageCars                8.354e+03  2.515e+03   3.322 0.000928 ***
+## GarageArea                2.072e+00  8.431e+00   0.246 0.805905    
+## WoodDeckSF                2.375e+01  7.175e+00   3.311 0.000964 ***
+## OpenPorchSF              -4.443e+00  1.340e+01  -0.332 0.740313    
+## EnclosedPorch             2.127e+01  1.541e+01   1.380 0.167810    
+## X3SsnPorch                6.270e+01  2.526e+01   2.482 0.013238 *  
+## ScreenPorch               5.648e+01  1.536e+01   3.678 0.000248 ***
+## PoolArea                 -7.527e+01  2.401e+01  -3.134 0.001774 ** 
+## MiscVal                   1.534e-01  1.548e+00   0.099 0.921084    
+## MoSold                    7.839e+01  3.081e+02   0.254 0.799212    
+## YrSold                   -4.767e+02  6.167e+02  -0.773 0.439739    
+## clasificacionEconomicas  -3.347e+05  1.261e+04 -26.541  < 2e-16 ***
+## clasificacionIntermedias -2.598e+05  1.234e+04 -21.047  < 2e-16 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 25650 on 988 degrees of freedom
+## Multiple R-squared:  0.8993, Adjusted R-squared:  0.8961 
+## F-statistic: 275.8 on 32 and 988 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{arbol\_3 }\OtherTok{\textless{}{-}} \FunctionTok{rpart}\NormalTok{(SalePrice }\SpecialCharTok{\textasciitilde{}}\NormalTok{ ., }\AttributeTok{data =}\NormalTok{ set\_entrenamiento)}
+
+\FunctionTok{prp}\NormalTok{(arbol\_3, }\AttributeTok{main=}\StringTok{"Arbol de Regresion"}\NormalTok{, }\AttributeTok{nn=}\ConstantTok{TRUE}\NormalTok{, }\AttributeTok{fallen.leaves =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{shadow.col =} \StringTok{"green"}\NormalTok{, }\AttributeTok{branch.lty =} \DecValTok{3}\NormalTok{, }\AttributeTok{branch =}\NormalTok{ .}\DecValTok{5}\NormalTok{, }\AttributeTok{faclen =} \DecValTok{0}\NormalTok{, }\AttributeTok{trace =} \DecValTok{1}\NormalTok{, }\AttributeTok{split.cex =} \FloatTok{0.8}\NormalTok{, }\AttributeTok{split.box.col =} \StringTok{"lightblue"}\NormalTok{, }\AttributeTok{split.border.col =} \StringTok{"blue"}\NormalTok{, }\AttributeTok{split.round =} \FloatTok{0.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## cex 0.948   xlim c(0, 1)   ylim c(0, 1)
+\end{verbatim}
+
+\includegraphics{BayesIngenuo_files/figure-latex/unnamed-chunk-9-1.pdf}
+Tanto el árbol de decision como los valles ingenuos realizaron un mejor
+trabajo predijendo que el modelo de regresión lineal. A pedsar de que la
+difrencia no sea muyb notoria, el arbol de decisiones lo hizo mejor que
+el modelo con bayes ingenuos. \#\#\# 7. Haga un análisis de la
+eficiencia del modelo de clasificación usando una matriz de confusión.
+Tenga en cuenta la efectividad, donde el algoritmo se equivocó más,
+donde se equivocó menos y la importancia que tienen los errores.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#confusion}
+\CommentTok{\#cm\textless{}{-}caret::confusionMatrix(as.factor(predBayes),as.factor(test$Estado))}
+\CommentTok{\#cm}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{analice-el-modelo.-cree-que-pueda-estar-sobre-ajustado}{%
+\subsubsection{8. Analice el modelo. ¿Cree que pueda estar sobre
+ajustado?}\label{analice-el-modelo.-cree-que-pueda-estar-sobre-ajustado}}
+
+Si un modelo presenta un alto nivel de precisión y porcentajes de
+comportamiento similares, es posible suponer que haya ocurrido un
+sobreajuste. Sin embargo, para confirmarlo, es necesario compararlo con
+otro conjunto de datos mediante la validación cruzada. De esta forma,
+podremos determinar si realmente ha habido sobreajuste o no.
+
+\hypertarget{haga-un-modelo-usando-validaciuxf3n-cruzada-compare-los-resultados-de-este-con-los-del-modelo-anterior.-cuuxe1l-funcionuxf3-mejor}{%
+\subsubsection{9. Haga un modelo usando validación cruzada, compare los
+resultados de este con los del modelo anterior. ¿Cuál funcionó
+mejor?}\label{haga-un-modelo-usando-validaciuxf3n-cruzada-compare-los-resultados-de-este-con-los-del-modelo-anterior.-cuuxe1l-funcionuxf3-mejor}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(caret)}
+\FunctionTok{library}\NormalTok{(mlbench)}
+
+\NormalTok{folds }\OtherTok{\textless{}{-}} \FunctionTok{createFolds}\NormalTok{(set\_entrenamiento}\SpecialCharTok{$}\NormalTok{SalePrice, }\AttributeTok{k =} \DecValTok{10}\NormalTok{)}
+\FunctionTok{data}\NormalTok{(}\StringTok{"PimaIndiansDiabetes"}\NormalTok{)}
+\NormalTok{E\_index }\OtherTok{\textless{}{-}} \FunctionTok{createDataPartition}\NormalTok{(PimaIndiansDiabetes}\SpecialCharTok{$}\NormalTok{diabetes, }\AttributeTok{p =} \FloatTok{0.7}\NormalTok{, }\AttributeTok{list =} \ConstantTok{FALSE}\NormalTok{) }\CommentTok{\#70}
+\CommentTok{\#entrenar con 30 pruebas }
+\NormalTok{entrenamiento }\OtherTok{\textless{}{-}}\NormalTok{ PimaIndiansDiabetes[E\_index, ]}
+\NormalTok{pruebas }\OtherTok{\textless{}{-}}\NormalTok{ PimaIndiansDiabetes[}\SpecialCharTok{{-}}\NormalTok{E\_index, ]}
+
+\NormalTok{f }\OtherTok{\textless{}{-}}\NormalTok{ diabetes }\SpecialCharTok{\textasciitilde{}}\NormalTok{ .}
+
+\CommentTok{\#entrenar modelo}
+\NormalTok{m1 }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(f, }\AttributeTok{data =}\NormalTok{ entrenamiento, }\AttributeTok{method =} \StringTok{"glm"}\NormalTok{, }\AttributeTok{trControl =} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method =} \StringTok{"cv"}\NormalTok{, }\AttributeTok{number =} \DecValTok{10}\NormalTok{))}
+\CommentTok{\#predicciones}
+\NormalTok{pred }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(m1, }\AttributeTok{newdata =}\NormalTok{ pruebas)}
+\CommentTok{\#rendimiento}
+\NormalTok{rendimiento }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(pred }\SpecialCharTok{==}\NormalTok{ pruebas}\SpecialCharTok{$}\NormalTok{diabetes)}
+\FunctionTok{cat}\NormalTok{(rendimiento)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 0.7173913
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#entrenar modelo}
+\NormalTok{m2 }\OtherTok{\textless{}{-}} \FunctionTok{train}\NormalTok{(f, }\AttributeTok{data =}\NormalTok{ entrenamiento, }\AttributeTok{method =} \StringTok{"glm"}\NormalTok{, }\AttributeTok{trControl =} \FunctionTok{trainControl}\NormalTok{(}\AttributeTok{method =} \StringTok{"cv"}\NormalTok{, }\AttributeTok{number =} \DecValTok{10}\NormalTok{))}
+\CommentTok{\#predicciones}
+\NormalTok{pred }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(m2, }\AttributeTok{newdata =}\NormalTok{ pruebas)}
+\CommentTok{\#rendimiento}
+\NormalTok{rendimiento2 }\OtherTok{\textless{}{-}} \FunctionTok{mean}\NormalTok{(pred }\SpecialCharTok{==}\NormalTok{ pruebas}\SpecialCharTok{$}\NormalTok{diabetes)}
+\FunctionTok{cat}\NormalTok{(rendimiento2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 0.7173913
+\end{verbatim}
+
+\hypertarget{compare-la-eficiencia-del-algoritmo-con-el-resultado-obtenido-con-el-uxe1rbol-de-decisiuxf3n-el-de-clasificaciuxf3n-y-el-modelo-de-random-forest-que-hizo-en-la-hoja-pasada.-cuuxe1l-es-mejor-para-predecir-cuuxe1l-se-demoruxf3-muxe1s-en-procesar}{%
+\subsubsection{10. Compare la eficiencia del algoritmo con el resultado
+obtenido con el árbol de decisión (el de clasificación) y el modelo de
+random forest que hizo en la hoja pasada. ¿Cuál es mejor para predecir?
+¿Cuál se demoró más en
+procesar?}\label{compare-la-eficiencia-del-algoritmo-con-el-resultado-obtenido-con-el-uxe1rbol-de-decisiuxf3n-el-de-clasificaciuxf3n-y-el-modelo-de-random-forest-que-hizo-en-la-hoja-pasada.-cuuxe1l-es-mejor-para-predecir-cuuxe1l-se-demoruxf3-muxe1s-en-procesar}}
+
+\end{document}
