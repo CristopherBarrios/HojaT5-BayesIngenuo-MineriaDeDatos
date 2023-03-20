@@ -107,15 +107,38 @@ prediction
 
 ### 5. Analice los resultados del modelo de regresión. ¿Qué tan bien le fue prediciendo?
 ```{r}
-prediction <- predict(modelo, test)
-
-mse <- mean((prediction - set_prueba$SalePrice)**2)
+mse <- mean((prediction - test
+             $SalePrice)**2)
 mse
 
 ```
+Se puede observar que el modelo pudo predecir la mayor parte de los datos de prueba, por lo que se puede decir que está bien implementado.  
 
 ### 6. Compare los resultados con el modelo de regresión lineal y el árbol de regresión que hizo en las hojas pasadas. ¿Cuál funcionó mejor?
 
+```{r}
+porciento <- 70/100
+datos$clasificacion <- ifelse(datos$SalePrice <= 251000, "Economicas", ifelse(datos$SalePrice <= 538000, "Intermedias", ifelse(datos$SalePrice <= 755000, "Caras")))
+
+datos$y <- as.numeric(factor(datos$clasificacion))
+datosCC <- datos[,c(2,4,18,19,20,21,27,35,37,38,39,44,45,46,47,48,49,50,51,52,53,55,57,60,62,63,67,68,69,70,71,72,76,77,78,81,83)]
+datosCC <- datosCC[,colSums(is.na(datosCC))==0]
+set.seed(123)
+trainRowsNumber<-sample(nrow(datosCC),porciento*nrow(datosCC))
+train<-datosCC[trainRowsNumber,]
+test<-datosCC[-trainRowsNumber,]
+
+fitLM<-lm(SalePrice~., data = train) 
+summary(fitLM)
+
+```
+
+```{r}
+arbol_3 <- rpart(SalePrice ~ ., data = set_entrenamiento)
+
+prp(arbol_3, main="Arbol de Regresion", nn=TRUE, fallen.leaves = TRUE, shadow.col = "green", branch.lty = 3, branch = .5, faclen = 0, trace = 1, split.cex = 0.8, split.box.col = "lightblue", split.border.col = "blue", split.round = 0.5)
+```
+Tanto el árbol de decision como los valles ingenuos realizaron un mejor trabajo predijendo que el modelo de regresión lineal. A pedsar de que la difrencia no sea muyb notoria, el arbol de decisiones lo hizo mejor que  el modelo con bayes ingenuos.
 ### 7. Haga un análisis de la eficiencia del modelo de clasificación usando una matriz de confusión. Tenga en cuenta la efectividad, donde el algoritmo se equivocó más, donde se equivocó menos y la importancia que tienen los errores.
 ```{r}
 
