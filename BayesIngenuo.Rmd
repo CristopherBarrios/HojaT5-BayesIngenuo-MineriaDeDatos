@@ -102,9 +102,17 @@ predBayes<-as.factor(predBayes)
 ```{r}
 prediction <- predict(modelo, test)
 prediction
+
 ```
 
 ### 5. Analice los resultados del modelo de regresión. ¿Qué tan bien le fue prediciendo?
+```{r}
+prediction <- predict(modelo, test)
+
+mse <- mean((prediction - set_prueba$SalePrice)**2)
+mse
+
+```
 
 ### 6. Compare los resultados con el modelo de regresión lineal y el árbol de regresión que hizo en las hojas pasadas. ¿Cuál funcionó mejor?
 
