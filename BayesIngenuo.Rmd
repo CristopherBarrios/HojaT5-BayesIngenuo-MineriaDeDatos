@@ -151,15 +151,58 @@ prp(arbol_3, main="Arbol de Regresion", nn=TRUE, fallen.leaves = TRUE, shadow.co
 Tanto el árbol de decision como los valles ingenuos realizaron un mejor trabajo predijendo que el modelo de regresión lineal. A pedsar de que la difrencia no sea muyb notoria, el arbol de decisiones lo hizo mejor que  el modelo con bayes ingenuos. 
 
 ### 7. Haga un análisis de la eficiencia del modelo de clasificación usando una matriz de confusión. Tenga en cuenta la efectividad, donde el algoritmo se equivocó más, donde se equivocó menos y la importancia que tienen los errores.
-```{r}
+```{r warning=FALSE, unload=TRUE, include=FALSE}
 
-#confusion
-#cm<-caret::confusionMatrix(as.factor(predBayes),as.factor(test$Estado))
-#cm
+#percentiles
+percentil <- quantile(datos$SalePrice)
 
 
-#########(A Carlos Daniel le corre en .tex)
+estado<-c('Estado')
+datos$Estado<-estado
+datos <- within(datos, Estado[SalePrice<=129975] <- 'Economica')
+datos$Estado[(datos$SalePrice>129975 &datos$SalePrice<=163000)] <- 'Intermedia'
+datos$Estado[datos$SalePrice>163000] <- 'Cara'
+
+
+#Bayes 
+porcentaje<-0.7
+
+set.seed(1234)
+corte <- sample(nrow(datos),nrow(datos)*porcentaje)
+
+#Entrenamiento
+train<-datos[corte,]
+#Prueba
+test<-datos[-corte,]
+
+modelo<-naiveBayes(train$Estado~., data=train)
+
+#Casting 
+test$GrLivArea<-as.numeric(test$GrLivArea)
+test$YearBuilt<-as.numeric(test$YearBuilt)
+test$BsmtUnfSF<-as.numeric(test$BsmtUnfSF)
+test$TotalBsmtSF<-as.numeric(test$TotalBsmtSF)
+test$GarageArea<-as.numeric(test$GarageArea)
+test$YearRemodAdd<-as.numeric(test$YearRemodAdd)
+test$SalePrice<-as.numeric(test$SalePrice)
+test$LotArea<-as.numeric(test$LotArea)
+
+#prediccion
+predBayes<-predict(modelo, newdata = test[,c("GrLivArea","YearBuilt","BsmtUnfSF","TotalBsmtSF","GarageArea","YearRemodAdd", "SalePrice","LotArea")])
+
+#Convertimos
+predBayes<-as.factor(predBayes)
+prediction <- predict(modelo, test)
+predBayes<-as.factor(predBayes)
 ```
+
+
+```{r}
+#Confusion
+cm<-caret::confusionMatrix(as.factor(predBayes),as.factor(test$Estado))
+cm
+```
+
 La matriz de confusión muestra la precisión del modelo en la clasificación de las casas en las tres categorías económica, intermedia y cara. Los resultados muestran que el modelo clasifica correctamente la mayoría de las casas. 
 
 Es importante tener en cuenta que los errores de clasificación pueden tener diferentes impactos según la categoría. Por ejemplo, clasificar una casa como económica cuando en realidad es cara puede ser más grave que clasificar una casa como intermedia cuando en realidad es económica. Por lo tanto, es importante tener en cuenta no solo la tasa de precisión del modelo, sino también los tipos de errores de clasificación y su impacto en la toma de decisiones basada en la clasificación del modelo.
