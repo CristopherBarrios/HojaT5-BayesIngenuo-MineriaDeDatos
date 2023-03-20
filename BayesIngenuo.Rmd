@@ -28,6 +28,9 @@ library("datasets")
 library("prediction")
 library(tidyverse)
 library(e1071)
+library(caret)
+library(mlbench)
+library(e1071)
 ```
 
 ### 1. Use los mismos conjuntos de entrenamiento y prueba que utilizó en las dos hojas anteriores.
@@ -38,6 +41,7 @@ test<- read.csv("./test.csv", stringsAsFactors = FALSE)
 ```
 
 ```{r}
+
 set_entrenamiento <- sample_frac(datos, .7)
 set_prueba <-setdiff(datos, set_entrenamiento)
 
@@ -146,8 +150,8 @@ Tanto el árbol de decision como los valles ingenuos realizaron un mejor trabajo
 ```{r}
 
 #confusion
-#cm<-caret::confusionMatrix(as.factor(predBayes),as.factor(test$Estado))
-#cm
+cm<-caret::confusionMatrix(as.factor(predBayes),as.factor(test$Estado))
+cm
 ```
 
 ### 8. Analice el modelo. ¿Cree que pueda estar sobre ajustado?
@@ -155,36 +159,30 @@ Tanto el árbol de decision como los valles ingenuos realizaron un mejor trabajo
 Si un modelo presenta un alto nivel de precisión y porcentajes de comportamiento similares, es posible suponer que haya ocurrido un sobreajuste. Sin embargo, para confirmarlo, es necesario compararlo con otro conjunto de datos mediante la validación cruzada. De esta forma, podremos determinar si realmente ha habido sobreajuste o no.
 
 ### 9. Haga un modelo usando validación cruzada, compare los resultados de este con los del modelo anterior. ¿Cuál funcionó mejor?
+
 ```{r}
-library(caret)
-library(mlbench)
 
-folds <- createFolds(set_entrenamiento$SalePrice, k = 10)
-data("PimaIndiansDiabetes")
-E_index <- createDataPartition(PimaIndiansDiabetes$diabetes, p = 0.7, list = FALSE) #70
-#entrenar con 30 pruebas 
-entrenamiento <- PimaIndiansDiabetes[E_index, ]
-pruebas <- PimaIndiansDiabetes[-E_index, ]
+#Convertir a factor
+set_entrenamiento$SalePrice <- factor(set_entrenamiento$SalePrice)
 
-f <- diabetes ~ .
+#conjunto entrenamiento y prueba
+set.seed(123)
+EIndex <- createDataPartition(datos$SalePrice, p = 0.7, list = FALSE)
+datosEntrenamiento <- set_entrenamiento[EIndex, ]
+datosTest <- set_entrenamiento[-EIndex, ]
 
-#entrenar modelo
-m1 <- train(f, data = entrenamiento, method = "glm", trControl = trainControl(method = "cv", number = 10))
+#Entrenar modelo
+nb_model <- naiveBayes(SalePrice ~ ., data = datosEntrenamiento)
+
 #predicciones
-pred <- predict(m1, newdata = pruebas)
-#rendimiento
-rendimiento <- mean(pred == pruebas$diabetes)
-cat(rendimiento)
+predictions <- predict(nb_model, datosTest)
+head(predictions, 5)
 
-#entrenar modelo
-m2 <- train(f, data = entrenamiento, method = "glm", trControl = trainControl(method = "cv", number = 10))
-#predicciones
-pred <- predict(m2, newdata = pruebas)
-#rendimiento
-rendimiento2 <- mean(pred == pruebas$diabetes)
-cat(rendimiento2)
-
+#Matriz de confusión
+confusionMatrix(predictions, datosTest$SalePrice)$table[1:5, ]
+```
 ```
 
 ### 10. Compare la eficiencia del algoritmo con el resultado obtenido con el árbol de decisión (el de clasificación) y el modelo de random forest que hizo en la hoja pasada. ¿Cuál es mejor para predecir? ¿Cuál se demoró más en procesar?
 
+Se puede decir que el árbol de decisión predijo mejor los precios que el modelo de naive bayes, ya que generó datos más exactos y es más fácil de comprender, sin embargo el modelo es un poco mas rápido en la ejecución. 
