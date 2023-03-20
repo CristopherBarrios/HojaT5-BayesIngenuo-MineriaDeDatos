@@ -70,9 +70,11 @@ train<-datos[corte,]
 #Prueba
 test<-datos[-corte,]
 
+corte
+
 ```
 
-
+Se ultilizo el mismo set de prueba anteriorior 
 ### 3. Haga un modelo de clasificación, use la variable categórica que hizo con el precio de las casas (barata, media y cara) como variable respuesta.
 ```{r  warning=FALSE, unload=TRUE}
 #modelo
@@ -94,9 +96,10 @@ predBayes<-predict(modelo, newdata = test[,c("GrLivArea","YearBuilt","BsmtUnfSF"
 #Convertimos
 predBayes<-as.factor(predBayes)
 
+predBayes
 
 ```
-
+El modelo clasifica las casas en economica, intermedia en cara según el parametro utilizado en la hoja anterior, < 170,000 dólares es económica, entre 171,000 y 289,000 dólares es de un valor intermedio, y > 290,000 dolares es una casa cara. 
 
 ### 4. Utilice los modelos con el conjunto de prueba y determine la eficiencia del algoritmo para predecir y clasificar.
 ```{r}
@@ -138,7 +141,7 @@ arbol_3 <- rpart(SalePrice ~ ., data = set_entrenamiento)
 
 prp(arbol_3, main="Arbol de Regresion", nn=TRUE, fallen.leaves = TRUE, shadow.col = "green", branch.lty = 3, branch = .5, faclen = 0, trace = 1, split.cex = 0.8, split.box.col = "lightblue", split.border.col = "blue", split.round = 0.5)
 ```
-Tanto el árbol de decision como los valles ingenuos realizaron un mejor trabajo predijendo que el modelo de regresión lineal. A pedsar de que la difrencia no sea muyb notoria, el arbol de decisiones lo hizo mejor que  el modelo con bayes ingenuos.
+Tanto el árbol de decision como los valles ingenuos realizaron un mejor trabajo predijendo que el modelo de regresión lineal. A pedsar de que la difrencia no sea muyb notoria, el arbol de decisiones lo hizo mejor que  el modelo con bayes ingenuos. 
 ### 7. Haga un análisis de la eficiencia del modelo de clasificación usando una matriz de confusión. Tenga en cuenta la efectividad, donde el algoritmo se equivocó más, donde se equivocó menos y la importancia que tienen los errores.
 ```{r}
 
