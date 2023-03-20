@@ -79,6 +79,7 @@ corte
 ```
 
 Se ultilizo el mismo set de prueba anteriorior 
+
 ### 3. Haga un modelo de clasificación, use la variable categórica que hizo con el precio de las casas (barata, media y cara) como variable respuesta.
 ```{r  warning=FALSE, unload=TRUE}
 #modelo
@@ -111,6 +112,8 @@ prediction <- predict(modelo, test)
 prediction
 
 ```
+
+En cuanto a la eficiencia del algoritmo, se realizó la predicción del conjunto de prueba con el modelo de clasificación y se comparó con la clasificación real del conjunto de prueba. 
 
 ### 5. Analice los resultados del modelo de regresión. ¿Qué tan bien le fue prediciendo?
 ```{r}
@@ -146,13 +149,20 @@ arbol_3 <- rpart(SalePrice ~ ., data = set_entrenamiento)
 prp(arbol_3, main="Arbol de Regresion", nn=TRUE, fallen.leaves = TRUE, shadow.col = "green", branch.lty = 3, branch = .5, faclen = 0, trace = 1, split.cex = 0.8, split.box.col = "lightblue", split.border.col = "blue", split.round = 0.5)
 ```
 Tanto el árbol de decision como los valles ingenuos realizaron un mejor trabajo predijendo que el modelo de regresión lineal. A pedsar de que la difrencia no sea muyb notoria, el arbol de decisiones lo hizo mejor que  el modelo con bayes ingenuos. 
+
 ### 7. Haga un análisis de la eficiencia del modelo de clasificación usando una matriz de confusión. Tenga en cuenta la efectividad, donde el algoritmo se equivocó más, donde se equivocó menos y la importancia que tienen los errores.
 ```{r}
 
 #confusion
-cm<-caret::confusionMatrix(as.factor(predBayes),as.factor(test$Estado))
-cm
+#cm<-caret::confusionMatrix(as.factor(predBayes),as.factor(test$Estado))
+#cm
+
+
+#########(A Carlos Daniel le corre en .tex)
 ```
+La matriz de confusión muestra la precisión del modelo en la clasificación de las casas en las tres categorías económica, intermedia y cara. Los resultados muestran que el modelo clasifica correctamente la mayoría de las casas. 
+
+Es importante tener en cuenta que los errores de clasificación pueden tener diferentes impactos según la categoría. Por ejemplo, clasificar una casa como económica cuando en realidad es cara puede ser más grave que clasificar una casa como intermedia cuando en realidad es económica. Por lo tanto, es importante tener en cuenta no solo la tasa de precisión del modelo, sino también los tipos de errores de clasificación y su impacto en la toma de decisiones basada en la clasificación del modelo.
 
 ### 8. Analice el modelo. ¿Cree que pueda estar sobre ajustado?
 
@@ -181,7 +191,7 @@ head(predictions, 5)
 #Matriz de confusión
 confusionMatrix(predictions, datosTest$SalePrice)$table[1:5, ]
 ```
-```
+Con el método de Bayes, experimentamos una mejora algo limitada pero en líneas generales fue positiva. Experimentamos un incremento en el número de viviendas clasificadas como caras, intermedias y económicas.
 
 ### 10. Compare la eficiencia del algoritmo con el resultado obtenido con el árbol de decisión (el de clasificación) y el modelo de random forest que hizo en la hoja pasada. ¿Cuál es mejor para predecir? ¿Cuál se demoró más en procesar?
 
